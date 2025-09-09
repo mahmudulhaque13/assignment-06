@@ -2,14 +2,14 @@ const categoryContainer = document.getElementById("categoryContainer");
 const plantsContainer = document.getElementById("plantsContainer");
 const detailsContainer = document.getElementById("detailsContainer");
 const cartContainer = document.getElementById("cart");
-const totalSpan = document.getElementById("total");
+const priceTotal = document.getElementById("total");
 
 const manageSpinner = (status) => {
   if (status === true) {
     document.getElementById("spinner").classList.remove("hidden");
-    plantsContainer.classList.add("hidden");
+    document.getElementById("plantsContainer").classList.add("hidden");
   } else {
-    plantsContainer.classList.remove("hidden");
+    document.getElementById("plantsContainer").classList.remove("hidden");
     document.getElementById("spinner").classList.add("hidden");
   }
 };
@@ -177,7 +177,7 @@ const showPlantsByCategory = (plants) => {
 let cart = [];
 
 function addToCart(name, price) {
-  const existingItem = cart.find((item) => item.name === name);
+  const existingItem = cart.find((data) => data.name === name);
 
   if (existingItem) {
     existingItem.quantity += 1;
@@ -185,38 +185,35 @@ function addToCart(name, price) {
     cart.push({ name, price, quantity: 1 });
   }
 
-  updateCartUI();
+  updateCart();
 }
 
 function removeFromCart(name) {
-  cart = cart.filter((item) => item.name !== name);
-  updateCartUI();
+  cart = cart.filter((data) => data.name !== name);
+  updateCart();
 }
 
-function updateCartUI() {
+function updateCart() {
   cartContainer.innerHTML = "";
   let totalPrice = 0;
 
-  cart.forEach((item) => {
-    totalPrice += item.price * item.quantity;
-
-    const div = document.createElement("div");
-    div.className =
-      "flex justify-between items-center bg-[#E6F9ED] p-2 rounded-md mb-2";
-
-    div.innerHTML = `
-      <div>
-        <p class="font-semibold">${item.name}</p>
-        <p class="text-sm">৳${item.price} × ${item.quantity}</p>
+  cart.forEach((data) => {
+    totalPrice += data.price * data.quantity;
+    cartContainer.innerHTML += `
+    
+    <div class="flex justify-between items-center bg-[#E6F9ED] p-3 rounded-md mb-3">
+      <div >
+        <p class="font-semibold">${data.name}</p>
+        <p class="text-sm">৳${data.price} × ${data.quantity}</p>
       </div>
-      <button onclick="removeFromCart('${item.name}')"
+      <button onclick="removeFromCart('${data.name}')"
         class="text-gray-600 hover:text-red-500 font-bold">×</button>
+    </div>
+    
     `;
-
-    cartContainer.appendChild(div);
   });
 
-  totalSpan.textContent = totalPrice;
+  priceTotal.textContent = totalPrice;
 }
 
 loadCategory();
