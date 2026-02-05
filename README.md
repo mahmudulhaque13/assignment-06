@@ -6,8 +6,6 @@ answer : var: Function-scoped or globally scoped. Can be redeclared and updated.
 
         const: Block-scoped. Cannot be updated or redeclared. Must be initialized at the time of declaration. For objects and arrays, the reference cannot be changed, but the properties or elements can be modified.
 
-
-
 2. What is the difference between map(), forEach(), and filter()?
 
 answer : map(): Returns a new array with transformed elements.
@@ -30,6 +28,5 @@ answer : Destructuring allows extracting values from arrays or objects into vari
 
 answer : Template literals are string literals that allow embedded expressions. They are enclosed by backticks (`) instead of single or double quotes. it can embed variables and expressions using ${}.
 
-         Template literals allow for multi-line strings and easier embedding of expressions, making them more readable compared to traditional string concatenation using the + operator.
-
-         Template literals are easier to read, write, and maintain compared to string concatenation.
+Template literals allow for multi-line strings and easier embedding of expressions, making them more readable compared to traditional string concatenation using the + operator.
+Template literals are easier to read, write, and maintain compared to string concatenation.
