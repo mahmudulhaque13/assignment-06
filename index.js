@@ -82,7 +82,7 @@ const showAllTrees = (allPlants) => {
           <span class="font-semibold">৳${allPlant.price}</span>
         </div>
         <button onclick="addToCart('${allPlant.name}', ${allPlant.price})"
-          class="bg-[#15803D] rounded-3xl w-full text-white p-2 mt-2">
+          class="bg-[#15803D] rounded-3xl w-full text-white p-2 mt-3">
           Add to Cart
         </button>
       </div>
