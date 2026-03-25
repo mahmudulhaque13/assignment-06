@@ -69,7 +69,7 @@ const showAllTrees = (allPlants) => {
     <div class="bg-white rounded-md shadow h-full flex flex-col">
       <div class="space-y-5 p-3 flex flex-col h-full">
         <div class="rounded-md">
-          <img class="rounded-md w-full h-48 object-cover" src="${allPlant.image}" />
+          <img class="rounded-md w-full h-46 object-cover" src="${allPlant.image}" />
         </div>
         <h2 onclick="loadPlantDetail(${allPlant.id})" class="font-semibold">
           ${allPlant.name}
